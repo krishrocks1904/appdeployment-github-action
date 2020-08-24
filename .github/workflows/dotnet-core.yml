@@ -21,7 +21,7 @@ jobs:
     
     - uses: nuget/setup-nuget@v1
 
-    - run: nuget restore WebApplication1.sln
+    - run: nuget restore webapp.csproj
       working-directory: './webapp'
 
     - name: Install dependencies

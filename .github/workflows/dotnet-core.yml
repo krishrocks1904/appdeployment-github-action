@@ -21,6 +21,8 @@ jobs:
       working-directory: './WebApplication1'
       run: dotnet restore
     - name: Build
+      working-directory: './WebApplication1'
       run: dotnet build --configuration Release --no-restore
     - name: Test
+      working-directory: './WebApplication1'
       run: dotnet test --no-restore --verbosity normal

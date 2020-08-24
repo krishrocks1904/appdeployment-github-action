@@ -13,16 +13,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    
+    - uses: nuget/setup-nuget@v1
+
+    - run: nuget restore WebApplication1.sln
+      working-directory: './WebApplication1'
+
     - name: Install dependencies
-      working-directory: './WebApplication1'
       run: dotnet restore
+      working-directory: './WebApplication1'
+      
     - name: Build
-      working-directory: './WebApplication1'
       run: dotnet build --configuration Release --no-restore
-    - name: Test
       working-directory: './WebApplication1'
+      
+    - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: './WebApplication1'

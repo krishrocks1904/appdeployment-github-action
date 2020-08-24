@@ -35,3 +35,15 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
       working-directory: './webapp'
+    
+    - name: Publish
+      run: dotnet publish -o ${{env.DOTNET_ROOT}}/myapp
+    
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        # Name of the Azure Web App
+        app-name: 'github-action-demo-web-app'
+        publish-profile: ${{ secrets. SCM_CREDENTIALS }} # optional
+        package: ${{env.DOTNET_ROOT}}/myapp # optional, default is .
+       

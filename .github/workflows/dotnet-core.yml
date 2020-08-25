@@ -52,6 +52,6 @@ jobs:
       with:
         # Name of the Azure Web App
         app-name: 'webapp-github-action-demo'
-        #publish-profile: ${{ secrets. SCM_CREDENTIALS }} # optional
+        #publish-profile: ${{ secrets. SCM_CREDENTIALS }} # optional 
         package: ${{env.DOTNET_ROOT}}/myapp # optional, default is .
        

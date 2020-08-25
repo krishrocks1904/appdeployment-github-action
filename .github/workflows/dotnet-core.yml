@@ -40,6 +40,13 @@ jobs:
       run: dotnet publish -o ${{env.DOTNET_ROOT}}/myapp
       working-directory: './webapp'
     
+    - uses: azure/login@v1.1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_GITHUB_RG }}
+    
+    - run: |
+        az webapp list --query "[?state=='Running']"
+        
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2
       with:

@@ -51,7 +51,7 @@ jobs:
       uses: Azure/webapps-deploy@v2
       with:
         # Name of the Azure Web App
-        app-name: 'appservice-demo-01'
+        app-name: 'app-service-demo-0'
         #publish-profile: ${{ secrets. SCM_CREDENTIALS }} # optional 
         package: ${{env.DOTNET_ROOT}}/myapp # optional, default is .
        
